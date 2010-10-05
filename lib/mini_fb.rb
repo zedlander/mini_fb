@@ -654,7 +654,7 @@ module MiniFB
             end
 
             if res_hash.is_a? Array # fql  return this
-                res_hash.collect! { |x| Hashie::Mash.new(x) }
+                res_hash.collect! { |x| Hashie::Mash.new(x) } if res_hash.first.is_a? Hash
             else
                 res_hash = Hashie::Mash.new(res_hash)
             end
